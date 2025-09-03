@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technological University (Taunggyi)</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 100px 0 0 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+nav.links {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  display: grid;
+  grid-template-columns: repeat(var(--items), 1fr);
+  height: 70px;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+nav.links a {
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+  padding: 10px 20px;
+}
+nav.links a:hover {
+  color: #00c2ff;
+}
+nav.links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; left: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, #0041c2, #00c2ff);
+  transition: 0.3s;
+}
+nav.links a:hover::after {
+  width: 100%;
+}
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: #1a4db3;
+      text-decoration: none;
+    }
+
+    .header h3 a {
+      text-decoration: none;
+      color: #155ab6;
+    }
+   
+
+    
+    fieldset {
+      border: solid, 3px;
+      max-width: 1000px;
+      margin: auto;
+      margin-bottom: 30px;
+      text-decoration: none;
+    }
+
+    legend {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #0d4ba0;
+      margin-bottom: 15px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: larger;
+    }
+
+    .location {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+    
+      
+    }
+
+    .accordion {
+      background: white;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      background: #4463c2;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background: #1c94cf;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      background: #f9f9f9;
+      animation: fadeIn 0.4s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-5px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .accordion.open .accordion-content {
+      display: block;
+    }
+
+    .carpath {
+        color: #1a4db3;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .images img {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .images img:hover {
+      transform: scale(1.05);
+    }
+
+    .arrow {
+      transition: transform 0.3s;
+    }
+
+    .accordion.open .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* Dropdown style */
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+      background-color: #fff;
+      transition: border-color 0.3s;
+    }
+
+    select:focus {
+      border-color: #26caca;
+      outline: none;
+    }
+
+    /* Footer */
+.glass-footer {
+  background: linear-gradient(135deg, rgba(10,10,50,0.85), rgba(0,50,120,0.85));
+  color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+.footer-left {
+  max-width: 400px;
+}
+.footer-left .logo {
+  width: 110px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.footer-left h4 {
+  margin: 10px 0;
+  color: #00c2ff;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-right a {
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-right a:hover {
+  color: #00c2ff;
+}
+    
+  
+  </style>
+</head>
+<body>
+  <header id="header">
+        <nav class="links" style="--items: 5;">
+    
+            <a href="homepage.html">Home</a>
+            <a href="unilists.html">University Lists</a>
+            <a href="search.html">Search Your Uni</a>
+            <a href="req1.html">Requirements</a>
+            <a href="aboutus.html">About Us</a>
+            <span class="line"></span>
+        </nav>
+    </header>
+
+  <div class="header">
+    
+    <h1>Technological University (Taunggyi)</h1>
+    <p class="location">📍 Ayetharyar Township, Yainggyi District, Shan State, Myanmar 📍</p>
+  </div>
+
+  <fieldset>
+    <legend>Available Majors</legend>
+
+    <!-- Civil Engineering -->
+    <div class="accordion">
+      <div class="accordion-header">Civil Engineering <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+          အင်ဂျင်နီယာလို့ပြောလိုက်ရင်အများစုကCivilကိုပဲအဓိကပြေးမြင်တတ်ကြပါတယ်။အဆောက်အအုံတွေ ဆောက်တဲ့အင်ဂျင်နီယာပေါ့။တကယ်တော့Civil Engineering major ဆိုတာ အိမ်ဆောက်လို့ ရတဲ့ နည်းပညာတခုထဲတော့ မဟုတ်ဘူးပေါ့နော်။
+
+        မြန်မာလိုဘာသာပြန်ရင်မြို့ပြလို့အဓိပ္ပါယ်ရတဲ့အတွက်လူသားတွေတည်ဆောက်နိုင်တဲ့ရုပ်ဝတ္ထုယဉ်ကျေးမှုတွေနဲ့အလုံးစုံသက်ဆိုင်ပါတယ်။အဆောက်အအုံတွေဆောက်တာအပြင်၊လမ်းတံတားတွေ၊ဆည်မြောင်းတာတမံတွေ၊‌ရေပေးဝေစနစ်တွေ၊ဥယျာဉ်ပန်းခြံတည်ဆောက်မှုတွေဟာမြို့ပြအင်ဂျင်နီယာဆိုင်ရာနယ်ပယ်တွေဖြစ်ပါတယ်။
+
+        အချုပ်အားဖြင့် ဆိုရင် မြို့ပြအင်ဂျင်နီယာ ဘာသာရပ်ကို လေ့လာရာမှာ
+        1.Structural Engineering
+        2.Geotechnical Engineering
+        3.Water Resources Engineering
+        4.Transportation Engineering
+        5.Environmental Engineering
+        6.Construction Engineering
+        ဟူ၍ အဓိက ဘာသာရပ် နယ်ပယ် (၆)ခုရှိပါတယ်။
+        </p>
+        
+        <div class="carpath">Career Path</div>
+            <p>
+            1.Structural engineer<br>
+            2.Geotechnical Engineer<br>
+            3.Environmental Engineer<br>
+            4.Marine Engineer<br>
+            5.Engineering Manager<br>
+            6.Design Engineer<br>
+            7.Water Resource Engineer<br>
+            </p>
+        
+        <div class="images">
+          <img src="civil1.jpg" alt="Civil 1">
+          <img src="civil2.jpg" alt="Civil 2">
+          <img src="civil3.jpg" alt="Civil 3">
+        </div>
+      </div>
+    </div>
+
+    <!-- Mechanical Engineering -->
+    <div class="accordion">
+      <div class="accordion-header">Mechanical Engineering <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+        Mechanical engineering ဆိုတာ မြန်မာလိုတော့ စက်မှုနဲ့ ဆိုင်တဲ့ အင်ဂျင်နီယာပညာရပ်ပါ 
+        စက်ပစ္စည်းများကို ဒီဇိုင်းဆွဲထုတ်လုပ်ပြီး မောင်းနှင်ပြုပြင်ထိန်းသိမ်းတာဟာ Mechanical Engineer ပါပဲ
+        Mechanical ဘာသာရပ်တွေ ကို အဓိကအားဖြင့် Solid ပိုင်းနဲ့ Fluid ပိုင်းဆိုပြီး ၂ ပိုင်း ခွဲချလိုက်ချင်ပါတယ်။ Solid မှာ ဆိုရင်တော့ 
+        Mechanics of materials နဲ့ 
+        Strength of materials, 
+        Theory of machines တို့လို အခြေခံကျတဲ့ ဘာသာရပ်တွေ သင်ရပါမယ်....
+        ပြီးတော့ ပစ္စည်းတစ်ခုကို ဖန်တီး ထုတ်လုပ်တဲ့အခါ သွားရမဲ့ approach တွေ methodology တွေ ကို လက်တွေ့ projects တွေ နဲ့ သင်ယူရမဲ့ mechanical engineering design လို subject တွေ 
+        Machine components တွေရဲ့ behavior တွေ, failure ဖြစ်နိုင်မဲ့ condition တွေ ကို Theory ဆန် ဆန် လေ့လာရမဲ့ vibration လို ဘာသာရပ် ၊ electronically သွားနေတဲ့ ခေတ်မှာ mechanical engineer တွေ လည်း နောက်မကျန်ခဲ့ရလေအောင် လေ့လာရဦးမဲ့ measurement and instrumentation, feedback control တို့လိုမျိုး applied engineering subject တွေ ထပ်မံသင်ကြားရမှာ ဖြစ်ပါတယ်
+        ဒါ့အပြင် Robotics အပိုင်းကို ဝါသနာပါတယ်ဆိုရင် elective subjects အနေနဲ့ ရွေးချယ်သင်ကြားနိုင်ပါသေးတယ်။ 
+        Automobile ပိုင်းကို စိတ်ဝင်စား တဲ့ သူတွေ အကြိုက်တွေ့စေမဲ့ Internal combustion engines လိုမျိုး ဘာသာရပ်တွေ၊
+        လေယာဉ်ပျံတွေ rocket တွေ ကို စိတ်ဝင်စားတဲ့ သူတွေ အတွက် Turbomachinery နဲ့ Gas Turbine Theory တို့လို ဘာသာရပ်တွေ၊ refrigeration and air condition တို့လို applied engineering ဘာသာရပ်တွေကို လေ့လာရဦးမှာပါ။
+         <div class="carpath">Career Path</div>
+            <p >
+            1.Mechanical Engineering Consultant<br>
+            2.Product and Material Testing Technologist<br>
+            3.Drafting and Computer Graphics Engineer<br>
+            4.Quality Management Engineer<br>
+            5.Industrial Engineer<br>
+            6.Product Engineer<br>
+            7.Production Manager<br>
+            8.Transportation Engineer<br>
+            </p>
+        <div class="images">
+          <img src="mech1.jpg" alt="Mech 1">
+          <img src="mech2.jpg" alt="Mech 2">
+          <img src="mech3.jpg" alt="Mech 3">
+        </div>
+      </div>
+    </div>
+    <!-- Electrical Power Engineering -->
+    <div class="accordion">
+      <div class="accordion-header">Electrical Power Engineering<span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+        လျှပ်စစ်စွမ်းအားအင်ဂျင်နီယာဆိုတာကတော့လျှပ်စစ်ဓာတ်အားကိုဘယ်လိုထုတ်ယူမလဲ၊တစ်နေရာကနေတစ်နေရာကိုဘယ်လိုပို့ဆောင်မလဲ၊
+        ဘယ်လိုဖြန့်ဖြူးမလဲဆိုတဲ့အကြောင်းအရာတွေကိုလေ့လာရတဲ့ပညာရပ်ဖြစ်ပါတယ်။
+        ဒီလိုထုတ်လုပ်၊ဖြန့်ဖြူးတဲ့နေရာမှာအသုံးပြုတဲ့Mortorတို့၊Transformerတို့လို့ Electrical Machineတွေရဲ့အကြောင်းအရာတွေကိုလည်းလေ့လာရပါတယ်။
+        ဒါတွေအပြင်ACနဲ့DCအကြောင်းACကDC၊DCကACအပြန်အလှန်ပြောင်းလဲပုံတွေ၊Electronic Devicesတွေ၊
+        အိမ်တွင်းလျှပ်စစ်သွယ်တန်းပုံတွေ၊ပြန်လည်ပြည့်ဖြိုးမြဲစွမ်းအင်တွေအပြင်လျှပ်စစ်အန္တရာယ်ကင်းရှင်း‌ေရးနဲ့ပတ်သက်တဲ့နည်းဥပဒေတွေကိုလည်းလေ့လာရပါတယ်။
+        <div class="carpath">Career Path</div>
+            <p >
+            1.Electrical Engineer at Power Stations<br>
+            2.Distribution and Transmission Line Engineer<br>
+            3.Substation Engineer<br>
+            4.Electrical Maintenance Engineer (Factories)<br>
+            5.Project or Site Engineer (Construction Projects)<br>
+            6.Solar System Installer / Engineer<br>
+            7.Control Panel / Automation Technician<br>
+            8.Teaching Assistant or Instructor<br>
+            9.Freelance or Self-employed Electrician/Engineer<br>
+            </p>
+        <div class="images">
+          <img src="ele1.jpg" alt="Ele 1">
+          <img src="ele2.png" alt="Ele 2">
+          <img src="ele3.jpg" alt="Ele 3">
+        </div>
+      </div>
+    </div>
+    <!-- Electronic & Communication Engineering -->
+    <div class="accordion">
+      <div class="accordion-header">Electronic & Communication Engineering <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>အခြေခံအဆင့်တွင် ရူပဗေဒ၊ ဓာတုဗေဒနှင့်သင်္ချာတို့ကို အခြေခံနှင့် Digital Electronics၊ Electronic Circuit Design, Microprocessors, 
+            Signal Processing, Networking Technologies စသည်ဖြင့် လက်တွေ့ကျကျ သင်ကြားပေးသည်။
+            English နဲ့ Humanities, Social Sciences သင်ခန်းစာများပါဝင်၍ ထိုနယ်ပယ်များတွင် ပိုမိုကျွမ်းကျင်စေရန် ပံ့ပိုးသည်။ 
+            နောက်ဆုံးနှစ်တွင် Capstone Project ကိုလုပ်ကိုင်ရမည်၊ MIIT နှင့်ပူးပေါင်းသော ကုမ္ပဏီများနှင့် သို့မဟုတ် မိမိကျောင်းတွင် faculty supervision ဖြင့် လုပ်ဆောင်နိုင်သည်။
+        
+         <div class="carpath">Career Path</div>
+            <p >
+            1.Embedded Systems Engineer<br>
+            2.Communication Engineer<br>
+            3.Network Engineer<br>
+            4.IoT Developer<br>
+            5.Signal Processing Specialist<br>
+            6.Electronic Hardware Designer<br>
+            </p>
+        <div class="images">
+            <img src="NET1.jpg" alt="CEIT 1">
+          <img src="EC1.jpg" alt="CEIT 2">
+          <img src="HPC1.jpg" alt="CEIT 3">
+        </div>
+      </div>
+    </div>
+
+    <!-- Information Technology (IT) -->
+      <div class="accordion">
+        <div class="accordion-header">
+          Information Technology (IT) <span class="arrow">▶️</span>
+        </div>
+        <div class="accordion-content">
+          <p>
+            Information Technology သည် software development, networking,
+            databases၊ system administration နှင့် IT services များကို
+            အာရုံစိုက်၍ သင်ကြားပေးသည့်ဘာသာရပ်ဖြစ်သည်။ Practical programming
+            နှင့် system design များလည်း အဓိကရှိသည်။
+          </p>
+          <div class="carpath">Career Path</div>
+          <p>
+            1.Software Developer / Programmer<br />
+            2.Network / System Engineer<br />
+            3.Database Administrator / Data Manager<br />
+            4.Cloud / DevOps Engineer<br />
+          </p>
+          <div class="images">
+            <img src="it1.jpg" alt="IT 1" />
+            <img src="it2.jpg" alt="IT 2" />
+            <img src="it3.jpg" alt="IT 3" />
+          </div>
+        </div>
+      </div>
+
+      <!--Mining Engineering -->
+    <div class="accordion">
+      <div class="accordion-header">Mining Engineering <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+        Mining engineeringဆိုတာက တွင်းထွက် ပစ္စည်းများကို ရှာဖွေရတဲ့ ဘာသာရပ်ဖြစ်ပါတယ်။
+        လူနေမှုဘဝအတွက်များစွာ အထောက်ကူပြုနေပြီး လူအသုံးများတဲ့ သံ steel သွပ် စတဲ့ကုန်ချောပစ္စည်းတွေ ရအောင် mineလုပ်ငန်းတွေ အဓိကထုတ်ပေးလိုဖြစ်ပါတယ်။
+        အခြား ရွှေ၊ ငွေ၊ လူသုံးကုန်ပစ္စည်းတွေ အပြင် ကျောက်မီးသွေးနဲ့ လျှပ်စစ်မီးလင်းရေးကို အများအပြားထုတ်လုပ်ပေးပါတယ်။ Mine လုပ်ငန်းစီမံကိန်းပြီးစီးဆောင်ရွက်ပြီးတဲ့အခါမှာလည်း 
+        အဲ့နေရာမှာ အလဟဿနေရာတွေ ကိုချန်မထားပဲ သဘာဝပတ်ဝန်းကျင်ဆိုင်ရာ စိမ်းလန်းစိုပြေရေးအတွက် မြေဖို့ပြီး သစ်ပင်အများအပြားကိုလည်းပြန်လည်စိုက်ပျိုးပေးခဲ့ကြပါတယ်။
+        သတ္တုတွင်းအင်ဂျင်နီယာများသည် သတ္တု၊ သတ္တု၊ရေနံနှင့်သဘာဝဓာတ်ငွေ့ကဲ့သိုသော မြေအောက်အရင်းအမြစ်များကို ဘေးကင်းစွာနှင့် အကျိုးရှိစွာထုတ်ယူသုံးစွဲနိုင်တယ်။
+        ပုံမှန်အလုပ်တာဝန်များမှာ - 
+        နေရာအသစ်များ၏ စီးပွားရေးအကျိုးအမြတ်အတွက် ဖြစ်နိုင်ချေနှင့် အလားအလာကို အကဲဖြတ်ခြင်း၊
+        ထုတ်ယူခြင်း အန္တရာယ်များကို စစ်ဆေးခြင်း၊
+        ဖြစ်နိုင်သော သတ္တုတူးဖော်ရေးနေရာများအတွက် ပုံစံများ သိုမဟုတ် အစီအစဉ်များထုတ်လုပ်ခြင်း၊
+        ထုတ်ယူခြင်းစနစ်များကို စီစဉ်ခြင်းနှင့် အကောင်အထည်ဖော်ခြင်း၊
+        စီမံကိန်းရေးဆွဲခြင်းနှင့် ထုတ်လုပ်ခြင်းကို တိုးမြှင့်နိုင်ရန်အတွက် အထူးကွန်ပျူတာ application များသုံးခြင်း၊
+        မြေအောက်စွမ်းဆောင်ရည်ကို စစ်ဆေးခြင်းနှင့် အကဲဖြတ်ခြင်း၊
+        ဆောက်လုပ်ရေးစီမံကိန်းများကို စီမံခြင်း၊
+        လုပ်ငန်းလည်ပတ်မှုသည် ကျန်းမာရေးနှင့် ဘေးကင်းရေးလိုအပ်ချက်များနှင့် ကိုက်ညီမှုရှိစေရန်
+        စသည့်တာဝန်များလဲ လုပ် ေဆာင် ရွေးချယ်သင်ကြားနိုင်ပါသေးတယ်။
+        </p>
+        <div class="carpath">Career Path</div>
+            <p>
+                1.Mine Planning Engineer<br>
+                2.Mining Site Supervisor / Site Engineer<br>
+                3.Drilling and Blasting Engineer<br>
+                4.Mine Safety Officer<br>
+                5.Mineral Processing Engineer<br>
+                6.Geotechnical Engineer (Mining Projects)<br>
+                7.Environmental Officer (Mining Sector)<br>
+                8.Equipment Maintenance Engineer (Heavy Machinery)<br>
+                9.Exploration Technician / Surveyor<br>
+                10.Mining Operations Manager Assistant<br>
+            </p>          
+        <div class="images">
+          <img src="MIE1.jpg" alt="MIE1">
+          <img src="MIE2.jpg" alt="MIE2">
+          <img src="MIE3.jpg" alt="MIE3">
+        </div>
+      </div>
+    </div>
+
+    <!--Biotechnology Engineering  -->
+    <div class="accordion">
+      <div class="accordion-header">Biotechnology Engineering  <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+      Biotechnology (ဇီ၀နည်းပညာ)ဘာသာရပ်က သက်ရှိတွေရဲ့ မျိုးရိုးဗီဇတွေနဲ့ မျိုးရိုးဗီဇဆိုင်ရာ ပြောင်းလဲမှုတွေ ၊ အက်တမ်တွေနဲ့ ပါ၀င်ဖွဲ့စည်းထားတဲ့ ဆဲတွင်းမော်လီကျူးများရဲ့ ဖွဲ့စည်းတည်ဆောက်ပုံတွေနဲ့ များစွာသော ဇီ၀ဖြစ်စဥ်တွေကို လေ့လာရမည့်ဇီ၀ဗေဒဘာသာရပ်ခွဲ တစ်ခုလဲ ဖြစ်ပါတယ်။
+သက်ရှိတွေမှာ ပါတဲ့ ဇီ၀ေဗဒဖြစ်စဥ်တွေကို လေ့လာအသုံး ချပြီး လူနဲ့သဘာ၀ပတ်၀န်းကျင်တခုလုံးကို အထောက်အကူ ပေးမယ့် နည်းပညာတွေနဲ့ ထုတ်ကုန်တွေကို ဖန်တီးပေးနိုင်တဲ့ ဘာသာရပ်တစ်ခုလဲ ဖြစ်ပါတယ်။
+        <div class="carpath">Career Path</div>
+            <p>
+            1. Research Scientist (Biotech/Pharma Labs)<br>
+            2. Clinical Research Associate<br>
+            3. Bioprocess Engineer<br>
+            4. Bioinformatics Scientist<br>
+            5. Agricultural Biotechnologist<br>
+            6. Biomedical Engineer<br>
+            7. Environmental Biotechnologist<br>
+            8. Quality Control/Assurance Specialist<br>
+            9. Regulatory Affairs Specialist<br>
+            10. Biotech Entrepreneur/Startup Founder<br>
+            </p>          
+        <div class="images">
+          <img src="bt.jpg" alt="PE1">
+          <img src="bt2.jpg" alt="PE2">
+          <img src="bt3.jpg" alt="PE3">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" style="color: black; background-color: white;">Website link   <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <a href= https://www.tutaunggyi.edu.mm target="_blank">Technological University (Taunggyi)</a>
+        
+        </div>
+      </div>
+     
+
+    
+        
+        
+
+    <!-- 🔽 Add more majors below with same structure -->
+  </fieldset>
+<script>
+  // Accordion toggle
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    acc.querySelector('.accordion-header').addEventListener('click', () => {
+      acc.classList.toggle('open');
+    });
+  });
+</script>
+  <footer class="glass-footer">
+    <div class="footer-left">
+      <img src="logo.jpg" class="logo">
+      <div class="diva"><span><</span><span>div</span><span>></span><span><</span><span>a</span><span>></span></div>
+    <h4>Own Your Power</h4>
+      <p>Embrace your authentic self, recognize your unique strengths, and use them to navigate life with confidence and purpose.</p>
+    </div>
+    <div class="footer-right">
+      <a href="unilists.html">University Lists</a>
+      <a href="search.html">Search Your Uni</a>
+      <a href="req1.html">Requirements</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+  </footer>
+  
+</body>
+</html>

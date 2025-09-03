@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Of Computer Studies Meiktila</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 100px 0 0 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Navbar */
+nav.links {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  display: grid;
+  grid-template-columns: repeat(var(--items), 1fr);
+  height: 70px;
+  align-items: center;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+}
+nav.links a {
+  text-align: center;
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+  transition: color 0.3s;
+  position: relative;
+  padding: 10px 20px;
+}
+nav.links a:hover {
+  color: #00c2ff;
+}
+nav.links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; left: 0;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, #0041c2, #00c2ff);
+  transition: 0.3s;
+}
+nav.links a:hover::after {
+  width: 100%;
+}
+
+    h1, h2, h3, h4 {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      color: #1a4db3;
+      text-decoration: none;
+    }
+
+    .header h3 a {
+      text-decoration: none;
+      color: #155ab6;
+    }
+   
+
+    
+    fieldset {
+      border: solid, 3px;
+      max-width: 1000px;
+      margin: auto;
+      margin-bottom: 30px;
+      text-decoration: none;
+    }
+
+    legend {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #0d4ba0;
+      margin-bottom: 15px;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: larger;
+    }
+
+    .location {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600;
+    
+      
+    }
+
+    .accordion {
+      background: white;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 15px 20px;
+      cursor: pointer;
+      background: #4463c2;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background: #1c94cf;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      background: #f9f9f9;
+      animation: fadeIn 0.4s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-5px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .accordion.open .accordion-content {
+      display: block;
+    }
+
+    .carpath {
+        color: #1a4db3;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .images img {
+      flex: 1;
+      min-width: 250px;
+      max-width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    .images img:hover {
+      transform: scale(1.05);
+    }
+
+    .arrow {
+      transition: transform 0.3s;
+    }
+
+    .accordion.open .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* Dropdown style */
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+      background-color: #fff;
+      transition: border-color 0.3s;
+    }
+
+    select:focus {
+      border-color: #26caca;
+      outline: none;
+    }
+
+    /* Footer */
+.glass-footer {
+  background: linear-gradient(135deg, rgba(10,10,50,0.85), rgba(0,50,120,0.85));
+  color: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+.footer-left {
+  max-width: 400px;
+}
+.footer-left .logo {
+  width: 110px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.footer-left h4 {
+  margin: 10px 0;
+  color: #00c2ff;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-right a {
+  color: #eee;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-right a:hover {
+  color: #00c2ff;
+}
+    
+  
+  </style>
+
+  
+</head>
+<body>
+  <header id="header">
+        <nav class="links" style="--items: 5;">
+    
+            <a href="homepage.html">Home</a>
+            <a href="unilists.html">University Lists</a>
+            <a href="search.html">Search Your Uni</a>
+            <a href="req1.html">Requirements</a>
+            <a href="aboutus.html">About Us</a>
+            <span class="line"></span>
+        </nav>
+    </header>
+    <div class="header">
+    
+    <h1>University Of Computer Studies Meiktila </h1>
+    <p class="location">📍Meiktila-Tharzi Road, Pan Taw Sat Village (TawMa Village Group), Meiktila Township, Mandalay Region, Myanmar📍
+ </p>
+  </div>
+
+  <fieldset>
+    <legend>Available Majors</legend>
+
+    <!-- Computer Science (B.C.Sc.) -->
+    <div class="accordion">
+      <div class="accordion-header">Computer Science (B.C.Sc.) <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+          Computer Science ဟာ အလျင်မြန်ဆုံး အခက်အခဲဖြေရှင်းမှုနည်းလမ်းတွေ၊ အယ်လဂိုရီသမ်များ၊
+          ဒေတာဖွဲ့စည်းပုံများ၊ Software Engineering၊ Database Systems၊ Artificial Intelligence၊
+          Parallel &amp; Distributed Computing စတဲ့ software-အခြေခံ ဘာသာရပ်တွေကို အဓိကထား လေ့လာတဲ့ လမ်းကြောင်းပါ။
+        </p>
+        <div class="carpath">Career Path</div>
+        <p>
+          1. Software Engineer / Developer<br>
+          2. Web / Mobile App Developer<br>
+          3. Data Scientist / Data Analyst<br>
+          4. AI / Machine Learning Engineer<br>
+          5. Database Administrator<br>
+          6. Research &amp; Teaching Assistant<br>
+        </p>
+        <div class="images">
+          <img src="SE1.jpg" alt="CS1">
+          <img src="KE1.jpg" alt="CS2">
+          <img src="HPC3.jpg" alt="CS3">
+        </div>
+      </div>
+    </div>
+
+    <!-- Computer Technology (B.C.Tech.) -->
+    <div class="accordion">
+      <div class="accordion-header">Computer Technology (B.C.Tech.) <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <p>
+          Computer Technology ဟာ Computer Architecture, Operating Systems, Networks,
+          Digital Signal Processing, Embedded Systems စတဲ့ hardware/system-ပိုင်းကို အခြေခံပြီး
+          စနစ်တကျ လေ့လာစေတဲ့ လမ်းကြောင်းပါ။ Network Security လည်း CT ထဲမှာပါဝင်ပြီး
+          cyber security အခြေခံတွေကိုတွေ့ရပါမယ်။
+        </p>
+        <div class="carpath">Career Path</div>
+        <p>
+          1. Network / System Engineer<br>
+          2. Cyber Security Analyst (Network Security)<br>
+          3. System Administrator / DevOps Associate<br>
+          4. Embedded / IoT Developer<br>
+          5. Cloud Infrastructure Technician<br>
+          6. IT Support / Infrastructure Engineer<br>
+        </p>
+        <div class="images">
+          <img src="NET3.jpg" alt="CT1">
+          <img src="EMB3.jpg" alt="CT2">
+          <img src="EC2.jpg" alt="CT3">
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-header" style="color: black; background-color: white;">Website link   <span class="arrow">▶️</span></div>
+      <div class="accordion-content">
+        <a href=https://ucsmtla.edu.mm target="_blank">University Of Computer Studies Meiktila </a>
+      </div>
+    </div>
+        
+        
+
+    <!-- 🔽 Add more majors below with same structure -->
+  </fieldset>
+
+  <footer class="glass-footer">
+    <div class="footer-left">
+      <img src="logo.jpg" class="logo">
+      <div class="diva"><span><</span><span>div</span><span>></span><span><</span><span>a</span><span>></span></div>
+    <h4>Own Your Power</h4>
+      <p>Embrace your authentic self, recognize your unique strengths, and use them to navigate life with confidence and purpose.</p>
+    </div>
+    <div class="footer-right">
+      <a href="unilists.html">University Lists</a>
+      <a href="search.html">Search Your Uni</a>
+      <a href="req1.html">Requirements</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+  </footer>
+
+
+<script>
+  // Accordion toggle
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    acc.querySelector('.accordion-header').addEventListener('click', () => {
+      acc.classList.toggle('open');
+    });
+  });
+</script>
+
+
+</body>
+</html>
